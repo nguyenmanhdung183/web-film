@@ -1,0 +1,236 @@
+*{ padding: 0;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif !important
+}
+
+:root{
+    --bgc:black;
+    --tc:white;
+}
+
+#header-h{
+    z-index: 1;
+    background-color:var(--bgc) ; 
+    width:100%;
+    height: 52px !important;
+    font-size: 16px;
+    display: inline-block;
+    position: fixed;
+}
+#nav-h{
+    display: inline-block;
+}
+#nav-h>li{
+    display: inline-block;
+    list-style-type: none;
+    padding-left: 16px;
+    padding-right: 16px;
+}
+#nav-h>li:hover{
+    background-color: antiquewhite;
+    height:  52px;
+}
+#nav-h>li li:hover{
+    background-color: antiquewhite;
+}
+
+
+
+#nav-h li:hover>a{
+    color: black;
+}
+#nav-h>li>a{
+    text-decoration: none;
+    line-height: 52px;
+    color:var(--tc);
+    text-transform: uppercase;
+}
+#nav-h>li >ul a{
+    text-decoration: none;
+    line-height: 32px;
+    color:var(--tc);
+    text-transform: uppercase;
+}
+#navgenre-h>li{
+    list-style-type: none;
+    padding-right: 20px;
+    padding-left: 26px;
+}
+#navgenre-h{
+    display: none;
+    position: absolute;
+    background-color:var(--bgc);
+    box-shadow: 8px 8px 8px rgba(0,0,0,0.8);
+    border-radius: 10px;
+
+}
+#navgenre-h a{
+    color:var(--tc);
+}
+#nav-h>li:hover #navgenre-h{
+    display: block;
+}
+
+
+
+
+#navh2o-h>li{
+    list-style-type: none;
+    padding-right: 24px;
+    padding-left: 30px;
+}
+#navh2o-h{
+    display: none;
+    position: absolute;
+    background-color:var(--bgc);
+    box-shadow: 8px 8px 8px rgba(0,0,0,0.8);
+    border-radius: 10px;
+}
+#navh2o-h a{
+    color:var(--tc);
+}
+#nav-h>li:hover #navh2o-h{
+    display: block;
+}
+
+
+
+
+
+#navlang-h>li{
+    list-style-type: none;
+    padding-right: 24px;
+    padding-left: 30px;
+    
+}
+#navlang-h{
+    display: none;
+    position: absolute;
+    background-color:var(--bgc);
+    box-shadow: 8px 8px 8px rgba(0,0,0,0.8);
+    border-radius: 10px;
+
+}
+#navlang-h a{
+    color:var(--tc);
+}
+#nav-h>li:hover #navlang-h{
+    display: block;
+}
+
+
+
+
+.navsearch-h{
+    float: right;
+    outline: none;
+    display: inline-block;
+    line-height: 52px;
+}
+
+.d-flex-h{
+    outline: none;
+    margin: none;
+    position: relative;
+}
+.btn-outline-success-h{
+    background-color: black;
+    padding-top: px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border: none;
+    background: none;
+    position: absolute;
+    top:10px;
+    right: 10px;
+}
+.ti-search{
+    font-size: 2rem;
+    color:rgb(255, 255, 255);
+}
+.ti-search:hover{
+    font-size: 2rem;
+    color:rgb(168, 41, 41);
+}
+.form-control-h{
+    border:none;
+    padding: 10px;
+    position: absolute;
+    top:8px;
+    right: 70px;
+    font-size: 1rem;
+    border-radius: 20px;
+    line-height: 16px;
+ 
+}
+.account-h{
+    display: block;
+    position: absolute;
+    display: inline-block;
+    float:right;
+    right: 20%;
+}
+.sisu-h li ,.sisued-h li{
+    display: inline-block;
+    padding-left: 10px;
+    padding-right:10px ;
+    border-width: 2px;
+    border-color: white;
+    border-style: solid;
+    border-radius: 20px;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+
+.sisu-h li:hover, .sisued-h li:hover{
+    border-color: rgb(180, 41, 41);
+    list-style: none;
+    text-decoration: none;
+}
+
+.sisu-h a{
+    text-decoration: none !important;
+    color: white !important;
+    line-height: 30px;
+}
+
+.sisued-h a{
+    text-decoration: none !important;
+    color: white !important;
+    line-height: 30px;
+}
+
+
+
+
+
+
+
+
+.gg-search {
+    color: #ffffff;
+    box-sizing: border-box;
+    position: relative;
+    display: block;
+    transform: scale(var(--ggs,1));
+    width: 16px;
+    height: 16px;
+    border: 2px solid;
+    border-radius: 100%;
+    margin-left: -4px;
+    margin-top: 5px
+}
+.gg-search::after {
+    content: "";
+    display: block;
+    box-sizing: border-box;
+    position: absolute;
+    border-radius: 3px;
+    width: 2px;
+    height: 8px;
+    background: currentColor;
+    transform: rotate(-45deg);
+    top: 10px;
+    left: 12px
+}

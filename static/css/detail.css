@@ -1,0 +1,124 @@
+/* Include fonts from fonts.google.com */
+@import url("https://fonts.googleapis.com/css?family=Merriweather:400,400i,700");
+@import url("https://fonts.googleapis.com/css?family=Roboto:400,400i,700");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  background: rgba(255, 255, 255, 0.87);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Roboto, 'sans-serif';
+  /* display: flex; */
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  flex-direction: column;
+}
+
+
+.container {
+  width: 100%;
+  color: white;
+  box-shadow: 0px 10px 40px rgba(255, 255, 255, 0.8);
+  margin: auto;
+flex-direction: row; 
+}
+
+.cover {
+  position: relative;
+  box-shadow: 5px 0px 10px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+}
+
+.view-trailer {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: #41d1b4;
+  color: white;
+  padding: 10px;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 5px;
+}
+.watch {
+  position: absolute;
+  top: 30px;
+  right: 10px;
+  background-color: #05da41;
+  color: white;
+  padding: 10px;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 5px;
+}
+.img-cover {
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+  transition: 3s ease;
+}
+
+.img-cover:hover {
+  transform: scale(1.2);
+}
+
+.detail {
+  flex: 1;
+  padding: 25px;
+  transition: all 0.4s ease;
+}
+
+.title {
+  font-family: Merriweather;
+  font-size: 2.3em;
+  margin-bottom: 20px;
+}
+
+.rating {
+  font-size: 2em;
+  margin-bottom: 30px;
+}
+
+.info {
+  margin-bottom: 20px;
+}
+
+.director,
+.actors {
+  margin-bottom: 10px;
+}
+
+ul {
+  padding: 0;
+  list-style: none;
+}
+
+ul li {
+  border-left: 3px solid white;
+  padding-left: 5px;
+}
+
+ul li p span {
+  font-weight: 600;
+}
+
+/**/
+
+.movie-info{
+  width: 500px;
+  margin-left: 10px;
+}
+.card{
+  margin-top : 100px
+}

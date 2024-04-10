@@ -1,0 +1,163 @@
+{% load static %}
+{% load i18n %}
+
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>{{ mymember.title }} - Movie Detail</title>
+      <link rel="stylesheet" href="{% static 'css/detail.css' %}">
+   </head>
+   <body>
+      {% include "nav.html" %}
+      <div class="container">
+         <div class="card">
+            <div class="cover">
+               <img src="{{ mymember.thumbnail.url }}" alt="Movie Thumbnail" class="img-cover">
+               <a href="{{ mymember.trailer_link }}" class="view-trailer">Trailer</a>
+               <div class='movie-info'>
+                  {% if request.user.is_authenticated %}
+                  <div style='display: flex; gap: 20px; margin-top: 10px;'>
+                     <form method="post" action="{% url 'rate_movie' movie_id=mymember.id %}">
+                        {% csrf_token %}
+                        <label for="id_rating"></label>
+                        {{ form.rating }}
+                        <button type="submit" class="btn btn-warning">{% trans "Gửi Đánh Giá" %}</button>
+                     </form>
+                     <form action="{% url 'lovemovie' movie_id=mymember.id %}" method="GET">
+                        {% csrf_token %}
+                        <div class="small-button">
+                           {% if is_favorite %}
+                           <button id="ifavoriteButton" class="btn btn-primary">{% trans "Đã yêu Thích" %}</button>
+                           {% else %}
+                           <button id="ifavoriteButton" class="btn btn-danger">{% trans "Yêu Thích" %}</button>
+                           {% endif %}
+                        </div>
+                     </form>
+                  </div>
+                  {% else %}
+                  <p><em>{%trans "Đăng nhập để đánh giá" %}</em></p>
+                  {% endif %}
+                  <div>
+                     <a href="{% url 'video' id=mymember.id %}">
+                     <button type="button" class="btn btn-info">{% trans "Xem Phim" %}</button>
+                     </a>
+                  </div>
+                  <h1 class="title">{{ mymember.title }}</h1>
+                  <div class="rating">{{ mymember.rating|floatformat:1 }}/10</div>
+               </div>
+            </div>
+            <div class="detail">
+               <h2>{% trans "Thông Tin Phim" %}</h2>
+               <div class="info">
+                  <p class="director" >
+                     <span style="color:black; font-weight:bold">{% trans "Đạo Diễn:" %}</span> 
+                     {{ mymember.director }}
+                  </p>
+                  <p class="actors">
+                     <span style="color:black; font-weight:bold">{% trans "Diễn Viên:" %}</span> 
+                     {{ mymember.actors }}
+                  </p>
+                  <p class="genre">
+                     <span style="color:black; font-weight:bold">{% trans "Thể Loại:" %}</span> 
+                     
+                         {% if mymember.genre.name == "Hanh Dong" %}
+                             {% trans "Hành Động" %}
+                         {% elif mymember.genre.name == "Tinh Cam" %}
+                             {% trans "Tình Cảm" %}
+                         {% elif mymember..name == "Kinh Di" %}
+                             {% trans "Kinh Dị" %}
+                         {% elif mymember.genre.name == "Lang Man" %}
+                             {% trans "Lãng Mạn" %}
+                         {% elif mymember.genre.name == "Phim Hai" %}
+                             {% trans "Phim Hài" %}
+                         {% elif mymember.genre.name  == "Chien Tranh" %}
+                             {% trans "Chiến Tranh" %}
+                         {%else %}
+                             null
+                         {% endif %}
+                 </p>
+                 
+               </div>
+               <div class="description">
+                  <p>{{ mymember.description }}</p>
+               </div>
+               <!--cai nay la comment-->
+               {% if request.user.is_authenticated %}
+               <div class="container mt-5">
+                  <div class="d-flex justify-content-center row">
+                     <div class="col-md-8">
+                        <div class="d-flex flex-column comment-section">
+                           <div class="bg-light p-2">
+                              <div class="d-flex flex-row align-items-start">
+                                 <!-- Hiển thị hình ảnh của người dùng đang đăng nhập -->
+                                 <img class="rounded-circle" src="https://i.imgur.com/RpzrMR2.jpg" width="40">
+                                 <textarea class="form-control ml-1 shadow-none textarea" id="comment-text" placeholder="Viết binh luận ở đây..."></textarea>
+                              </div>
+                              <div class="mt-2 text-right">
+                                 <!-- Thêm sự kiện onclick để gửi bình luận mới -->
+                                 <button class="btn btn-primary btn-sm shadow-none" type="button" onclick="submitComment()">{% trans "Đăng Comment" %}</button>
+                                 <button class="btn btn-outline-primary btn-sm ml-1 shadow-none" type="button">{% trans "Thoát" %}</button>
+                              </div>
+                           </div>
+                           {% for comment in comments reversed  %}
+                           <div class="bg-white p-2">
+                              <div class="d-flex flex-row user-info">
+                                 <!-- Hiển thị hình ảnh người dùng và tên người dùng -->
+                                 <div class="d-flex flex-column justify-content-start ml-2">
+                                    <!-- Làm đậm tên người dùng -->
+                                    <span class="d-block font-weight-bold name" style="color: black; font-weight: bold; font-size:22px"> {{ comment.user.username }}</span>
+                                 </div>
+                              </div>
+                              <div class="mt-2">
+                                 <!-- Đổi màu chữ và làm đậm nội dung bình luận -->
+                                 <p class="comment-text" style="color: black"><em>{{ comment.comment }}</em></p>
+                              </div>
+                           </div>
+                           {% endfor %}
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               {% else %}
+               <p style="color:black; font-weight:bold"><em>{% trans "Đăng Nhập Để Bình Luận" %}</em></p>
+               {% endif %}
+               <script>
+                function submitComment() {
+                    var commentText = document.getElementById("comment-text").value;
+                    if (commentText.trim() !== "") {
+                        var movieId = "{{ mymember.id }}";
+                        var url = "{% url 'comment' movie_id=mymember.id %}";
+            
+                        var formData = new FormData();
+                        formData.append('comment', commentText);
+            
+                        fetch(url, {
+                            method: 'POST',
+                            body: formData,
+                            headers: {
+                                'X-CSRFToken': '{{ csrf_token }}'
+                            }
+                        })
+                        .then(response => {
+                            if (response.ok) {
+                                // Reload lại trang sau khi post comment thành công
+                                location.reload();
+                            }
+                            throw new Error('Network response was not ok.');
+                        })
+                        .catch(error => {
+                            console.error('There was an error!', error);
+                        });
+                    }
+                }
+            </script>
+            
+               <!--het comment-->
+
+            </div>
+         </div>
+      </div>
+   </body>
+</html>

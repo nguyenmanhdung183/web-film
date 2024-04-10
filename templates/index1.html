@@ -1,0 +1,168 @@
+{%  extends "nav1.html" %}
+{% load static %}
+{% block content %}
+{% load i18n %}
+
+
+<link rel="stylesheet" href="{% static 'css/index1.css' %}">
+<link rel="stylesheet" href="{% static 'css/nav1.css' %}">
+
+
+<body><div class="blockcach"></div>
+    <div class="container1">
+        <div class="filmbox">
+            {{ mymember.video_file | safe }}
+        </div>
+        <div class="btncontainer1">
+            {% if request.user.is_authenticated %}
+            <form id="ratingForm" method="post" action="{% url 'rate_movie' movie_id=mymember.id %}">
+                {% csrf_token %}
+                <div class="rating">
+                    <input type="radio" name="rating" value="10" id="rating_10"><label for="rating_10">☆</label>
+                    <input type="radio" name="rating" value="9" id="rating_9"><label for="rating_9">☆</label>
+                    <input type="radio" name="rating" value="8" id="rating_8"><label for="rating_8">☆</label>
+                    <input type="radio" name="rating" value="7" id="rating_7"><label for="rating_7">☆</label>
+                    <input type="radio" name="rating" value="6" id="rating_6"><label for="rating_6">☆</label>
+                    <input type="radio" name="rating" value="5" id="rating_5"><label for="rating_5">☆</label>
+                    <input type="radio" name="rating" value="4" id="rating_4"><label for="rating_4">☆</label>
+                    <input type="radio" name="rating" value="3" id="rating_3"><label for="rating_3">☆</label>
+                    <input type="radio" name="rating" value="2" id="rating_2"><label for="rating_2">☆</label>
+                    <input type="radio" name="rating" value="1" id="rating_1"><label for="rating_1">☆</label>
+                </div>
+            </form>
+            
+            <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                var form = document.getElementById('ratingForm');
+                var radios = form.querySelectorAll('input[type="radio"]');
+            
+                // Add event listener to each radio input
+                radios.forEach(function(radio) {
+                    radio.addEventListener('change', function() {
+                        form.submit(); // Submit the form when any radio is changed
+                    });
+                });
+            });
+            </script>
+            
+            {% endif %}
+
+            <div class="button-c1">
+                <a href="{% url 'detail' id=mymember.id %}"><i  class="gg-corner-up-left"></i></a>
+                <p class="gg-corner-up-left-text">BACK</p>
+            </div>
+            <div class="diem">
+                <div class="diemso">{{ mymember.rating|floatformat:1 }}/10</div>
+            </div>
+        </div>
+
+     {% if request.user.is_authenticated %}
+        <div class="binhluan">
+            <div class="binhluantype">
+                <div class="odenhapbinhluan">
+                    <input id="comment-text" placeholder="{% trans 'Viết binh luận ở đây...' %}" type="text" class="text-input">
+                 </div>
+
+            </div>
+            <div class="binhluanread">
+                {% for comment in comments reversed  %}
+                <div class="binhluanusername">
+                    <span class="binhluanusernamedetail" style="color: rgb(0, 0, 0); font-weight: bold; font-size:16px"> {{ comment.user.username }}</span>
+                </div>
+                <div class="binhluandetail">
+                    <p class="comment-text" style="color: rgb(255, 255, 255)"><em>{{ comment.comment }}</em></p>
+                </div>
+                {% endfor %}
+            </div>
+
+    {% else %}
+        <div class="binhluan">
+
+            <p  style="color:rgb(255, 255, 255);
+                font-weight:bold;
+                text-align: center;
+                font-style: italic;
+                line-height: 100px;">
+            {% trans "Đăng Nhập Để Bình Luận" %}
+            </p>
+        </div>
+
+    {% endif %}
+        </div>
+    </div>
+
+
+
+
+
+    <div class="container2">
+        <div class="boxscroll">
+            {% for item in listitem %}
+            <div class="container2-box">
+                <a href="{% url 'detail' id=item.id %}">
+                    <img class="element-box" src="{{ item.thumbnail.url }}" alt="{{ item.title }}">
+
+                </a>
+                <div class="title-container">
+                    <li><p class="ironman">{{item.title}}</p></li>
+                    <li><p class="robert">{{item.actors}}</p></li>
+                </div>
+            </div>
+            {% endfor %}
+            <div class="clear"></div>
+        </div>
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+</body>
+
+<!--  -->
+
+<script>
+    function submitComment(event) {
+        // Kiểm tra xem phím được nhấn có phải là Enter không
+        if (event.keyCode === 13) {
+            var commentText = document.getElementById("comment-text").value;
+            if (commentText.trim() !== "") {
+                var movieId = "{{ mymember.id }}";
+                var url = "{% url 'comment' movie_id=mymember.id %}";
+
+                var formData = new FormData();
+                formData.append('comment', commentText);
+
+                fetch(url, {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'X-CSRFToken': '{{ csrf_token }}'
+                    }
+                })
+                .then(response => {
+                    if (response.ok) {
+                        // Reload lại trang sau khi post comment thành công
+                        location.reload();
+                    }
+                    throw new Error('Network response was not ok.');
+                })
+                .catch(error => {
+                    console.error('There was an error!', error);
+                });
+            }
+        }
+    }
+
+    // Gán sự kiện "keydown" cho trường nhập liệu
+    document.getElementById("comment-text").addEventListener("keydown", submitComment);
+</script>
+
+
+{% endblock %}

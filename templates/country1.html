@@ -1,0 +1,49 @@
+{%  extends "nav1.html" %}
+{% load static %}
+{% block content %}
+
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.css">
+    <link rel="stylesheet" href="{% static 'css/cards-gallery.css' %}">
+
+    <body style="backgound-color:#212529">
+    <div class="backgound-list-h">
+        <section style="background-color: #212529; height:100vh;display:block" class="gallery-block cards-gallery">
+
+        <div class="block-cach" style="width:100% ; height:52px;background-color: #212529"></div>
+             <div class="container">
+                 <div class="heading">
+                    <h2 style="color: white;">{%if not movie%}chưa có film thuộc quốc gia này {%else%} {{country}} {%endif%}</h2>
+                 </div>
+                 <div class="row">
+                  {% for item in movie %}
+                   <div class="col-md-6 col-lg-4">
+                     <div class="card border-0 transform-on-hover">
+                         <a class="lightbox" href="">
+                             <div class="card-img-container">
+                                 <a href="{% url 'detail' id=item.id %}">
+                                 <img src="{{ item.thumbnail.url }}" alt="{{ item.title }}" class="card-img-top">
+                                 </a>
+                             </div>
+                         </a>
+                         <div class="card-body">
+                             <h6><a href="{% url 'detail' id=item.id %}">{{ item.title }}</a></h6>
+                             <p class="text-muted card-text">{{ item.actors }}</p>
+                         </div>
+                     </div>
+                 </div>
+                   {% endfor %}
+     
+                 </div>
+             </div>
+         </section>
+         <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.js"></script>
+         <script>
+             baguetteBox.run('.cards-gallery', { animation: 'slideIn'});
+         </script>
+        </div>
+    </body>
+
+</html>
+{% endblock %}

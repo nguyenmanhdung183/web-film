@@ -1,0 +1,220 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-04-11 01:53+0700\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: .\project1\settings.py:110
+msgid "English"
+msgstr ""
+
+#: .\project1\settings.py:111
+msgid "Vietnamese"
+msgstr ""
+
+#: .\templates\about.html:9
+msgid "about"
+msgstr ""
+
+#: .\templates\about.html:48
+msgid "ĐỒ ÁN 1"
+msgstr ""
+
+#: .\templates\detail.html:26
+msgid "Gửi Đánh Giá"
+msgstr ""
+
+#: .\templates\detail.html:32
+msgid "Đã yêu Thích"
+msgstr ""
+
+#: .\templates\detail.html:34
+msgid "Yêu Thích"
+msgstr ""
+
+#: .\templates\detail.html:40
+msgid "Đăng nhập để đánh giá"
+msgstr ""
+
+#: .\templates\detail.html:44
+msgid "Xem Phim"
+msgstr ""
+
+#: .\templates\detail.html:52
+msgid "Thông Tin Phim"
+msgstr ""
+
+#: .\templates\detail.html:55 .\templates\detail1.html:83
+#: .\templates\index.html:27
+msgid "Đạo Diễn:"
+msgstr ""
+
+#: .\templates\detail.html:59 .\templates\detail1.html:89
+#: .\templates\index.html:31
+msgid "Diễn Viên:"
+msgstr ""
+
+#: .\templates\detail.html:63 .\templates\detail1.html:62
+#: .\templates\index.html:35
+msgid "Thể Loại:"
+msgstr ""
+
+#: .\templates\detail.html:66 .\templates\detail1.html:65
+#: .\templates\index.html:38 .\templates\nav.html:46 .\templates\nav1.html:23
+msgid "Hành Động"
+msgstr ""
+
+#: .\templates\detail.html:68 .\templates\detail1.html:67
+#: .\templates\index.html:40 .\templates\nav.html:47 .\templates\nav1.html:24
+msgid "Tình Cảm"
+msgstr ""
+
+#: .\templates\detail.html:70 .\templates\detail1.html:69
+#: .\templates\index.html:42 .\templates\nav.html:48 .\templates\nav1.html:25
+msgid "Kinh Dị"
+msgstr ""
+
+#: .\templates\detail.html:72 .\templates\detail1.html:71
+#: .\templates\index.html:44
+msgid "Lãng Mạn"
+msgstr ""
+
+#: .\templates\detail.html:74 .\templates\detail1.html:73
+#: .\templates\index.html:46 .\templates\nav.html:49 .\templates\nav1.html:26
+msgid "Phim Hài"
+msgstr ""
+
+#: .\templates\detail.html:76 .\templates\detail1.html:75
+#: .\templates\index.html:48
+msgid "Chiến Tranh"
+msgstr ""
+
+#: .\templates\detail.html:100
+msgid "Đăng Comment"
+msgstr ""
+
+#: .\templates\detail.html:101
+msgid "Thoát"
+msgstr ""
+
+#: .\templates\detail.html:124 .\templates\index1.html:86
+msgid "Đăng Nhập Để Bình Luận"
+msgstr ""
+
+#: .\templates\nav.html:39 .\templates\nav1.html:19
+msgid "Trang chủ"
+msgstr "Trang Chủ"
+
+#: .\templates\nav.html:43
+msgid "Thể Loại"
+msgstr ""
+
+#: .\templates\nav.html:50 .\templates\nav1.html:27
+msgid "Chiến tranh"
+msgstr ""
+
+#: .\templates\nav.html:51 .\templates\nav1.html:28
+msgid "Lãng mạn"
+msgstr ""
+
+#: .\templates\nav.html:57
+msgid "Quốc Gia"
+msgstr ""
+
+#: .\templates\nav.html:60 .\templates\nav1.html:34
+msgid "Mỹ"
+msgstr ""
+
+#: .\templates\nav.html:61 .\templates\nav1.html:35
+msgid "Hàn"
+msgstr ""
+
+#: .\templates\nav.html:62 .\templates\nav1.html:36
+msgid "Nhật"
+msgstr ""
+
+#: .\templates\nav.html:63 .\templates\nav1.html:37
+msgid "Việt"
+msgstr ""
+
+#: .\templates\nav.html:64 .\templates\nav1.html:38
+msgid "Trung"
+msgstr ""
+
+#: .\templates\nav.html:69 .\templates\nav1.html:44
+msgid "Giới thiệu"
+msgstr ""
+
+#: .\templates\nav.html:77 .\templates\nav1.html:42
+msgid "Yêu thích"
+msgstr ""
+
+#: .\templates\nav.html:85
+msgid "Đăng Xuất "
+msgstr ""
+
+#: .\templates\nav.html:90
+msgid "Đăng Nhập "
+msgstr ""
+
+#: .\templates\nav.html:93
+msgid "Đăng Ký "
+msgstr ""
+
+#: .\templates\nav.html:99 .\templates\nav1.html:46
+msgid "Ngôn Ngữ"
+msgstr ""
+
+#: .\templates\nav.html:113
+msgid "Nhập nội dung"
+msgstr ""
+
+#: .\templates\nav.html:114
+msgid "Tìm Kiếm"
+msgstr ""
+
+#: .\templates\nav1.html:21
+msgid "Thể loại"
+msgstr ""
+
+#: .\templates\nav1.html:32
+msgid "Quốc gia"
+msgstr ""
+
+#: .\templates\nav1.html:48
+msgid "Eng"
+msgstr ""
+
+#: .\templates\nav1.html:49
+msgid "Vi"
+msgstr ""
+
+#: .\templates\nav1.html:59
+msgid "Đăng nhập"
+msgstr ""
+
+#: .\templates\nav1.html:60
+msgid "Đăng ký"
+msgstr ""
+
+#: .\templates\nav1.html:68
+msgid "Đăng Xuất"
+msgstr ""
+
+#: .\templates\nav1.html:76
+msgid "Tìm kiếm"
+msgstr ""

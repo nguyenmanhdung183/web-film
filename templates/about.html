@@ -1,0 +1,60 @@
+{% include "nav.html" %}
+{% load i18n %}
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% trans 'about' %}</title>
+ 
+
+<link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'> 
+    <style> 
+  
+    body {
+        font-family: 'Roboto';font-size: 16px;
+    }
+    
+    .aboutus-section {
+        padding: 90px 0;
+    }
+    .aboutus-title {
+        font-size: 30px;
+        letter-spacing: 0;
+        line-height: 32px;
+        margin: 0 0 39px;
+        padding: 0 0 11px;
+        position: relative;
+        text-transform: uppercase;
+        color: #000;
+    }
+    .aboutus-text {
+        color: #606060;
+        font-size: 60px;
+        line-height: 40px;
+        margin: 0 0 30px;
+    }
+
+ </style>
+</head>
+  <body>
+      <div class="aboutus-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 col-sm-6 col-xs-12">
+                    <div class="aboutus">
+
+                        <p class="aboutus-text">{% trans "ĐỒ ÁN 1" %}</p>
+                        </ul>
+                    </div>
+                </div>
+        <div class="aboutus-banner">
+            <img  text-align="center" src="https://dongphucgiadinh.com/wp-content/uploads/2022/09/logo-dai-hoc-bach-khoa.png"/>
+        </div>
+
+            </div>
+        </div>
+    </div>
+  </body>
+</html>

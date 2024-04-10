@@ -1,0 +1,62 @@
+{%load static%}
+{%load i18n%}
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>{{ mymember.title }} - Movie Detail</title>
+      <link rel="stylesheet" href="{% static 'css/video.css' %}">
+   </head>
+   <body>
+      {% include "nav.html" %}
+      <div class="container">
+         <div class="card">
+            <div class="cover">
+               {{ mymember.video_file | safe }}
+               <div class='movie-info'>
+                  <h1 class="title">{{ mymember.title }}</h1>
+                  <a href="{% url 'detail' id=mymember.id %}">
+                  <button type="button" class="btn btn-info">Back to detail</button>
+                  </a>
+               </div>
+            </div>
+            <div class="detail">
+                <div class="info">
+                  <p class="director" >
+                     <span style="color:black; font-weight:bold">{% trans "Đạo Diễn:" %}</span> 
+                     {{ mymember.director }}
+                  </p>
+                  <p class="actors">
+                     <span style="color:black; font-weight:bold">{% trans "Diễn Viên:" %}</span> 
+                     {{ mymember.actors }}
+                  </p>
+                  <p class="genre">
+                     <span style="color:black; font-weight:bold">{% trans "Thể Loại:" %}</span> 
+                     
+                         {% if mymember.genre.name == "Hanh Dong" %}
+                             {% trans "Hành Động" %}
+                         {% elif mymember.genre.name == "Tinh Cam" %}
+                             {% trans "Tình Cảm" %}
+                         {% elif mymember..name == "Kinh Di" %}
+                             {% trans "Kinh Dị" %}
+                         {% elif mymember.genre.name == "Lang Man" %}
+                             {% trans "Lãng Mạn" %}
+                         {% elif mymember.genre.name == "Phim Hai" %}
+                             {% trans "Phim Hài" %}
+                         {% elif mymember.genre.name  == "Chien Tranh" %}
+                             {% trans "Chiến Tranh" %}
+                         {%else %}
+                            null
+                         {% endif %}
+                 </p>
+                 
+                 </div>
+               <div class="description">
+                  <p>{{ mymember.description }}</p>
+               </div>
+            </div>
+         </div>
+      </div>
+   </body>
+</html>
