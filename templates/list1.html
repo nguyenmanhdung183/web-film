@@ -11,6 +11,7 @@
     <title></title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.css" >
+    <link rel="stylesheet" href="{% static 'themify-icons/themify-icons.css' %}">
     <link rel="stylesheet" href="../static/css/cards-gallery.css?{% now " u"="" %}"="" />
 </head>
 <div class="backgound-list-h">
@@ -35,6 +36,9 @@
                          <div class="card-body">
                              <h6><a href="detail/{{ item.id }}">{{ item.title }}</a></h6>
                              <p class="text-muted  card-text">{{ item.actors }}</p>
+                             <p class="ratingtronghome">{{item.rating |floatformat:1 }} ☆   -  {{item.views}} views</p>
+                            
+                           
                          </div>
                      </div>
                  </div>

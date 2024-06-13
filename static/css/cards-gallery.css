@@ -84,3 +84,10 @@
   color: white
 
 }
+.ratingtronghome {
+  font-size: 30px;
+  color: yellow !important;
+  font-weight: bolder;
+  text-decoration: antiquewhite;
+  padding-top: 0px;
+}

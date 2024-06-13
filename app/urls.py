@@ -1,6 +1,5 @@
 from django.urls import path
 from . import views
-from django.views.i18n import set_language
 urlpatterns = [
     path('', views.home),
     path('detail/<int:id>', views.detail, name='detail'),
