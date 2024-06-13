@@ -1,7 +1,7 @@
 from django.contrib import admin
 from app.models import Movie, Country, Genre, Review,Favorite, Comment
 
-# Register your models here.
+#đăng ký các phần để hiện lên trang admin
 admin.site.register(Movie)
 admin.site.register(Country)
 admin.site.register(Genre)

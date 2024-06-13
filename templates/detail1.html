@@ -46,7 +46,8 @@
                 </a>
             </div>
             <div class="btn-cnt1">
-                <div class="rating">{{ mymember.rating|floatformat:1 }}/10</div>
+                <li class="rating">{{demfav}}❤️ &nbsp {{ mymember.rating|floatformat:1 }}⭐  &nbsp {{ mymember.views }} views</li>
+    <!--☆ -->
             </div>
         </div>
         <div class="clear"></div>
@@ -60,7 +61,7 @@
                 <p class="genre">
                     <span style="color:rgb(255, 255, 255); font-weight:bold;font-weight: bold;
                     ">{% trans "Thể Loại:" %}</span> 
-                    
+                    <a href="{% url 'genre' genre_id=mymember.genre.id %}" class="" style="color: aliceblue;">
                         {% if mymember.genre.name == "Hanh Dong" %}
                             {% trans "Hành Động" %}
                         {% elif mymember.genre.name == "Tinh Cam" %}
@@ -76,19 +77,31 @@
                         {%else %}
                             null
                         {% endif %}
+                    </a>
                 </p>
+
+                <p class="genre">
+                    <span style="color:rgb(255, 255, 255); font-weight:bold;font-weight: bold;
+                    ">{% trans "Thể Loại:" %}</span> 
+                    <a href="{% url 'country' country_id=mymember.country.id %}" class="" style="color: aliceblue;">
+                        {{mymember.country.name}}
+                    </a>
+                </p>
+
+
             </li>
             <li>
                 <p class="director" >
                     <span style=" font-weight:bold">{% trans "Đạo Diễn:" %}</span> 
-                    {{ mymember.director }}
+                    <a style="color: aliceblue;" href="{% url 'search' %}?q={{ mymember.director }}" class="">{{ mymember.director }}</a>
+
                  </p>
             </li>
             <li>
                 <p class="actors">
                     <span style=" font-weight:bold">{% trans "Diễn Viên:" %}</span> 
-                    {{ mymember.actors }}
-                 </p>
+                    <a style="color: aliceblue;" href="{% url 'search' %}?q={{ mymember.actors }}" class="">{{ mymember.actors }}</a>
+                </p>
             </li>
             <li>
                 <div class="description">

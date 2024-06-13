@@ -10,13 +10,18 @@
 
 <body><div class="blockcach"></div>
     <div class="container1">
+
+
         <div class="filmbox">
             {{ mymember.video_file | safe }}
         </div>
+    
+
         <div class="btncontainer1">
             {% if request.user.is_authenticated %}
             <form id="ratingForm" method="post" action="{% url 'rate_movie' movie_id=mymember.id %}">
                 {% csrf_token %}
+                
                 <div class="rating">
                     <input type="radio" name="rating" value="10" id="rating_10"><label for="rating_10">☆</label>
                     <input type="radio" name="rating" value="9" id="rating_9"><label for="rating_9">☆</label>
@@ -44,7 +49,8 @@
                 });
             });
             </script>
-            
+
+
             {% endif %}
 
             <div class="button-c1">
@@ -56,11 +62,20 @@
             </div>
         </div>
 
-     {% if request.user.is_authenticated %}
+   
         <div class="binhluan">
             <div class="binhluantype">
+
                 <div class="odenhapbinhluan">
+                    {% if request.user.is_authenticated %}
                     <input id="comment-text" placeholder="{% trans 'Viết binh luận ở đây...' %}" type="text" class="text-input">
+                    {% else %}
+
+                   <div class="text-input">
+                    <p class="dangnhapdebinhluan" style="color: black; padding-top: 20px; font-style:italic;"> {% trans "Đăng Nhập Để Bình Luận" %}</p>
+                   </div>
+                    {% endif %}
+
                  </div>
 
             </div>
@@ -75,20 +90,12 @@
                 {% endfor %}
             </div>
 
-    {% else %}
-        <div class="binhluan">
 
-            <p  style="color:rgb(255, 255, 255);
-                font-weight:bold;
-                text-align: center;
-                font-style: italic;
-                line-height: 100px;">
-            {% trans "Đăng Nhập Để Bình Luận" %}
-            </p>
-        </div>
 
-    {% endif %}
-        </div>
+
+
+
+    </div>
     </div>
 
 
@@ -164,5 +171,11 @@
     document.getElementById("comment-text").addEventListener("keydown", submitComment);
 </script>
 
-
+<script>	
+    var player = $f(document.getElementById('player'));
+    player.addEvent('ready', function() { 
+    player.api('play');
+    });
+</script>
+    
 {% endblock %}
